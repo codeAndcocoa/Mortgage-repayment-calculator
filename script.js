@@ -68,6 +68,7 @@ const monthlyInterestsRate = () => {
   termValue.textContent = formattedTotalValue;
 };
 
+//Check repayment or interests radio button is checked to call related results function
 const choices = () => {
   if (repaymentRadioBtn.checked) {
     monthlyRepayment();
@@ -77,6 +78,7 @@ const choices = () => {
   }
 };
 
+//Valid state function
 const isValid = (inputField)=>{
   let parentElem = inputField.parentElement;
   let prevElem = inputField.previousElementSibling;
@@ -100,6 +102,8 @@ if(nextElem){
 }
 
 }
+
+//Not Valid State function
 const notValid = (inputField)=>{
   let parentElem = inputField.parentElement;
   let prevElem = inputField.previousElementSibling;
@@ -126,7 +130,7 @@ document.querySelector(".output").classList.add("d-none");
 
 };
 
-
+//Inputs Validation
 const inputsValidation=()=>{
 if(!mortgageAmount.value){
   notValid(mortgageAmount);
@@ -149,7 +153,7 @@ if(!repaymentRadioBtn.checked && !interestsRadioBtn.checked){
 }else{
   interestsRadioBtn.closest('.form-check').nextElementSibling.classList.remove('d-block');
 }
-if(mortgageAmount && mortgageTerm && interestRate){
+if(mortgageAmount.value && mortgageTerm.value && interestRate.value){
   document.querySelector(".empty").classList.add("d-none");
 document.querySelector(".output").classList.remove("d-none");
 choices();
