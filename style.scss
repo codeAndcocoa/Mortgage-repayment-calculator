@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap");
+
+// Imported files
+@import "sass/colors";
+@import "sass/queries";
+@import "sass/mixins";
+
+$font-weights: (
+  "Bold": 500,
+  "Bolder": 700,
+);
+$font-size: 1em;
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+//Body
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: $neutral2;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+// Container
+.container {
+  width: map-get($map: $widths, $key: "desktop");
+}
+
+// Mortgage
+.mortgage {
+  border-radius: 12px;
+  background-color: $neutral1;
+}
+
+//Form side
+.form {
+  width: 50%;
+  background-color: $neutral1;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  padding: 2rem;
+  .title h2 {
+    color: $neutral6;
+    font: {
+      size: $font-size;
+      weight: map-get($map: $font-weights, $key: "Bolder");
+    }
+  }
+  .clear {
+    color: $neutral6;
+    cursor: pointer;
+  }
+}
+// Inputs and labels
+
+.choice-title,
+.form-label {
+  color: $neutral5;
+  size: $font-size;
+}
+.input-group,
+.form-check {
+  @include borderState(1.1px, $neutral3);
+  cursor: pointer;
+}
+.form-check label {
+  color: $neutral6;
+  cursor: pointer;
+}
+.input-group-text {
+  background-color: $neutral2;
+  color: $neutral6;
+}
+// Hover and focus
+.input-group:hover {
+  @include borderState(1.1px, $neutral6);
+}
+.input-group:has(> input[type="number"]:focus) {
+  @include borderState(2px, $primary1);
+}
+.input-group:has(> input[type="number"]:focus) .input-group-text {
+  background-color: $primary1;
+}
+
+.form-check:hover {
+  @include borderState(2px, $primary1);
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  @include borderState(1.1px, $neutral3);
+  border-radius: 50%;
+  background-clip: content-box;
+  padding: 4px;
+}
+
+input[type="radio"]:checked {
+  background-color: $primary1;
+  background-image: none;
+  @include borderState(1.3px, $primary1);
+}
+.form-check:has(input[type="radio"]:checked) {
+  @include borderState(2px, $primary1);
+  background-color: fade-out($color: $primary1, $amount: 0.8);
+}
+// Calculate Button
+.calculate-btn {
+  border: none;
+  outline: none;
+  background-color: $primary1;
+  color: $neutral6;
+  padding: 1rem;
+  width: 22rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.calculate-btn:hover {
+  background-color: fade-out($color: $primary1, $amount: 0.6);
+}
+
+// result side
+.result {
+  width: 50%;
+  border-bottom-left-radius: 60px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-color: $neutral6;
+  padding: 1rem;
+}
+
+.output h4,
+.instructions,
+.editing {
+  font-size: $font-size;
+  line-height: 1.7;
+  color: $neutral1;
+}
+.empty {
+  margin-top: 20%;
+}
+.empty .instructions p,
+.editing {
+  color: $neutral3;
+  width: fit-content;
+}
+
+.output .d-flex {
+  background-color: darken($color: $neutral6, $amount: 5);
+  border-radius: 10px;
+  border-top: 2px solid $primary1;
+  padding: 1rem;
+  margin-top: 1.4rem;
+
+  hr {
+    width: 90%;
+    @include borderState(1px, $neutral4);
+  }
+}
+.monthly {
+  margin-bottom: 1.5rem;
+}
+.total {
+  margin-top: 1.5rem;
+}
+.monthly h6,
+.total h6 {
+  color: $neutral3;
+  font-size: $font-size;
+}
+
+.monthly .repayment-value {
+  color: $primary1;
+  font: {
+    weight: map-get($map: $font-weights, $key: "Bold");
+  }
+}
+.total .term-value {
+  color: $neutral1;
+  font-size: $font-size;
+}
+
+// Media queries
+@media screen and (1000px <= width <= 1215px) {
+  .calculate-btn {
+    width: 18rem;
+  }
+}
+@media screen and (width = 1024px) {
+  .container {
+    width: map-get($map: $widths, $key: "mobile");
+  }
+}
+
+@media screen and (width <= 992px) {
+  .result,
+  .form {
+    width: auto;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .container {
+    width: map-get($map: $widths, $key: "tablet");
+  }
+  .result {
+    border-radius: 0;
+  }
+  .result,
+  .form {
+    width: auto;
+  }
+  .calculate-btn {
+    width: 15rem;
+  }
+}
+
+@media screen and (width <= 600px) {
+  .container {
+    width: map-get($map: $widths, $key: "mobile");
+  }
+}
+
+@media screen and (height >=1366px) {
+  body {
+    min-height: 80vh;
+  }
+}

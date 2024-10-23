@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap");
+/* Lime */
+/* Red */
+/* White  */
+/* Slate 100  */
+/* Slate 300 */
+/* Slate 500  */
+/* Slate 700  */
+/* Slate 900  */
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: hsl(202, 86%, 94%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 70%;
+}
+
+.mortgage {
+  border-radius: 12px;
+  background-color: hsl(0, 0%, 100%);
+}
+
+.form {
+  width: 50%;
+  background-color: hsl(0, 0%, 100%);
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  padding: 2rem;
+}
+.form .title h2 {
+  color: hsl(202, 55%, 16%);
+  font-size: 1em;
+  font-weight: 700;
+}
+.form .clear {
+  color: hsl(202, 55%, 16%);
+  cursor: pointer;
+}
+
+.choice-title,
+.form-label {
+  color: hsl(200, 24%, 40%);
+  size: 1em;
+}
+
+.input-group,
+.form-check {
+  border: 1.1px solid hsl(203, 41%, 72%);
+  cursor: pointer;
+}
+
+.form-check label {
+  color: hsl(202, 55%, 16%);
+  cursor: pointer;
+}
+
+.input-group-text {
+  background-color: hsl(202, 86%, 94%);
+  color: hsl(202, 55%, 16%);
+}
+
+.input-group:hover {
+  border: 1.1px solid hsl(202, 55%, 16%);
+}
+
+.input-group:has(> input[type=number]:focus) {
+  border: 2px solid hsl(61, 70%, 52%);
+}
+
+.input-group:has(> input[type=number]:focus) .input-group-text {
+  background-color: hsl(61, 70%, 52%);
+}
+
+.form-check:hover {
+  border: 2px solid hsl(61, 70%, 52%);
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1.1px solid hsl(203, 41%, 72%);
+  border-radius: 50%;
+  background-clip: content-box;
+  padding: 4px;
+}
+
+input[type=radio]:checked {
+  background-color: hsl(61, 70%, 52%);
+  background-image: none;
+  border: 1.3px solid hsl(61, 70%, 52%);
+}
+
+.form-check:has(input[type=radio]:checked) {
+  border: 2px solid hsl(61, 70%, 52%);
+  background-color: rgba(215, 218, 47, 0.2);
+}
+
+.calculate-btn {
+  border: none;
+  outline: none;
+  background-color: hsl(61, 70%, 52%);
+  color: hsl(202, 55%, 16%);
+  padding: 1rem;
+  width: 22rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.calculate-btn:hover {
+  background-color: rgba(215, 218, 47, 0.4);
+}
+
+.result {
+  width: 50%;
+  border-bottom-left-radius: 60px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-color: hsl(202, 55%, 16%);
+  padding: 1rem;
+}
+
+.output h4,
+.instructions,
+.editing {
+  font-size: 1em;
+  line-height: 1.7;
+  color: hsl(0, 0%, 100%);
+}
+
+.empty {
+  margin-top: 20%;
+}
+
+.empty .instructions p,
+.editing {
+  color: hsl(203, 41%, 72%);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.output .d-flex {
+  background-color: #0d202b;
+  border-radius: 10px;
+  border-top: 2px solid hsl(61, 70%, 52%);
+  padding: 1rem;
+  margin-top: 1.4rem;
+}
+.output .d-flex hr {
+  width: 90%;
+  border: 1px solid hsl(200, 26%, 54%);
+}
+
+.monthly {
+  margin-bottom: 1.5rem;
+}
+
+.total {
+  margin-top: 1.5rem;
+}
+
+.monthly h6,
+.total h6 {
+  color: hsl(203, 41%, 72%);
+  font-size: 1em;
+}
+
+.monthly .repayment-value {
+  color: hsl(61, 70%, 52%);
+  font-weight: 500;
+}
+
+.total .term-value {
+  color: hsl(0, 0%, 100%);
+  font-size: 1em;
+}
+
+@media screen and (1000px <= width <= 1215px) {
+  .calculate-btn {
+    width: 18rem;
+  }
+}
+@media screen and (width = 1024px) {
+  .container {
+    width: 95%;
+  }
+}
+@media screen and (width <= 992px) {
+  .result,
+  .form {
+    width: auto;
+  }
+}
+@media screen and (width <= 768px) {
+  .container {
+    width: 80%;
+  }
+  .result {
+    border-radius: 0;
+  }
+  .result,
+  .form {
+    width: auto;
+  }
+  .calculate-btn {
+    width: 15rem;
+  }
+}
+@media screen and (width <= 600px) {
+  .container {
+    width: 95%;
+  }
+}
+@media screen and (height >= 1366px) {
+  body {
+    min-height: 80vh;
+  }
+}/*# sourceMappingURL=style.css.map */

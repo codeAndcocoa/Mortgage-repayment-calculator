@@ -1,0 +1,4 @@
+@mixin borderState($weight , $color){
+    border: $weight solid $color;
+};
+
